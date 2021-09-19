@@ -1,0 +1,41 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#app {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-table {
+    padding: 40px;
+    border-radius: 20px;
+    background: #eee;
+    max-width: 1200px;
+}
+
+.grid-table__row {
+    display: grid;
+}
+
+.grid-table_user .grid-table__row {
+    grid-template-columns: 1fr 1fr 1fr 2fr 1fr;
+}
+
+.grid-table_users .grid-table__row {
+    grid-template-columns: 1fr 2fr 2fr;
+}
+
+.grid-table__col {
+    display: flex;
+    padding: 5px 10px;
+}
