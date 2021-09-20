@@ -1,16 +1,18 @@
-<div class="grid-table grid-table_users">
-    <div class="grid-table__row grid-table__row_header">
-        <div class="grid-table__col">ID</div>
-        <div class="grid-table__col">Name</div>
-        <div class="grid-table__col">Username</div>
-    </div>
-    {% for %}
-        <div class="grid-table__row">
-            <div class="grid-table__col">{{ id }}</div>
-            <div class="grid-table__col">
-                <a href="#" class="spa-link" onlick="onNavClick('user/{{ id }}')">{{ name }}</a>
-            </div>
-            <div class="grid-table__col">{{ username }}</div>
+<section class="section">
+    <div class="grid-table grid-table_users">
+        <div class="grid-table__row grid-table__row_header">
+            <div class="grid-table__col">ID</div>
+            <div class="grid-table__col">Name</div>
+            <div class="grid-table__col">Username</div>
         </div>
-    {% endfor %}
-</div>
+        {% for %}
+            <div class="grid-table__row">
+                <div class="grid-table__col">{{ id }}</div>
+                <div class="grid-table__col">
+                    <a href="#" class="spa-link" onclick="onLinkClick('/user/{{ id }}')">{{ name }}</a>
+                </div>
+                <div class="grid-table__col">{{ username }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

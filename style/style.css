@@ -1,6 +1,7 @@
 body {
     padding: 0;
     margin: 0;
+    font-family: 'Tahoma', sans-serif;
 }
 
 #app {
@@ -16,10 +17,10 @@ body {
     padding: 0;
 }
 
-.grid-table {
+.section {
     padding: 40px;
     border-radius: 20px;
-    background: #eee;
+    background: #f7f7f7;
     max-width: 1200px;
 }
 
@@ -38,4 +39,5 @@ body {
 .grid-table__col {
     display: flex;
     padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
 }

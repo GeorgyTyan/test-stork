@@ -4,7 +4,7 @@
   "description": "Тестовое задание для Сторк",
   "main": "index.js",
   "scripts": {
-    "serve": "http-server"
+    "serve": "http-server --proxy http://127.0.0.1:8080?"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/GeorgyTyan/test-stork/issues"
   },
-  "homepage": "https://github.com/GeorgyTyan/test-stork#readme"
+  "homepage": "https://github.com/GeorgyTyan/test-stork#readme",
+  "dependencies": {
+    "http-server": "^13.0.2"
+  }
 }

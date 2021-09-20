@@ -1,31 +1,33 @@
-<div class="grid-table grid-table_user">
-    <a href="#">back</a>
-    <div class="grid-table__row grid-table__row_header">
-        <div class="grid-table__col">ID</div>
-        <div class="grid-table__col">Name</div>
-        <div class="grid-table__col">Username</div>
-        <div class="grid-table__col">Address</div>
-        <div class="grid-table__col">Email</div>
-    </div>
-    <div class="grid-table__row">
-        <div class="grid-table__col">{{ id }}</div>
-        <div class="grid-table__col">{{ name }}</div>
-        <div class="grid-table__col">{{ username }}</div>
-        <div class="grid-table__col">
-            <ul class="list">
-                <li>Город: {{ address.city }}</li>
-                <li>Улица: {{ address.street }}</li>
-                <li>Квартира: {{ address.suite }}</li>
-                <li>Индекс: {{ address.zipcode }}</li>
-                <li>
-                    Координаты:
-                    <ul>
-                        <li>Широта: {{ address.geo.lat }}</li>
-                        <li>Долгота: {{ address.geo.lng }}</li>
-                    </ul>
-                </li>
-            </ul>
+<section class="section">
+    <div class="grid-table grid-table_user">
+        <a href="#" class="spa-link" onclick="onLinkClick('/')">Назад</a>
+        <div class="grid-table__row grid-table__row_header">
+            <div class="grid-table__col">ID</div>
+            <div class="grid-table__col">Name</div>
+            <div class="grid-table__col">Username</div>
+            <div class="grid-table__col">Address</div>
+            <div class="grid-table__col">Email</div>
         </div>
-        <div class="grid-table__col">{{ email }}</div>
+        <div class="grid-table__row">
+            <div class="grid-table__col">{{ id }}</div>
+            <div class="grid-table__col">{{ name }}</div>
+            <div class="grid-table__col">{{ username }}</div>
+            <div class="grid-table__col">
+                <ul class="list">
+                    <li>Город: {{ address.city }}</li>
+                    <li>Улица: {{ address.street }}</li>
+                    <li>Квартира: {{ address.suite }}</li>
+                    <li>Индекс: {{ address.zipcode }}</li>
+                    <li>
+                        Координаты:
+                        <ul>
+                            <li>Широта: {{ address.geo.lat }}</li>
+                            <li>Долгота: {{ address.geo.lng }}</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="grid-table__col">{{ email }}</div>
+        </div>
     </div>
-</div>
+</section>
