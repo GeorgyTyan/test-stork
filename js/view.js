@@ -1,13 +1,13 @@
 const app = document.getElementById('app');
 const view = {
-  async render(tplPath, context = {}) {
+  async render(tplPath, state = {}) {
     let tpl = '';
     try {
       const response = await fetch(tplPath);
       if (response.ok) {
         tpl = await response.text();
-        let parseForResult = this._parseFor(tpl, context);
-        tpl = parseForResult || this._parseVars(tpl, context);
+        let parseForResult = this._parseFor(tpl, state);
+        tpl = parseForResult || this._parseVars(tpl, state);
       } else {
         tpl = 'Шаблон не найден.'
       }
@@ -23,7 +23,7 @@ const view = {
     }
   },
 
-  _parseVars(tpl, context) {
+  _parseVars(tpl, state) {
     const tplVars = /\{\{(.*?)\}\}/g;
     let match = null;
     while (match = tplVars.exec(tpl)) {
@@ -31,34 +31,34 @@ const view = {
       if (!tplVarNames) {
         continue;
       }
-      let contextVar = this._getContextVars(tplVarNames, context);
-      tpl = tpl.replace(new RegExp(match[0], 'gi'), contextVar);
+      let stateVar = this._getstateVars(tplVarNames, state);
+      tpl = tpl.replace(new RegExp(match[0], 'gi'), stateVar);
     }
     return tpl;
   },
 
-  _parseFor(tpl, context) {
+  _parseFor(tpl, state) {
     const forBlockRegex = /\{\% for ([\S\s]*?)endfor \%\}/gm;
     const matchedForBlock = tpl.match(forBlockRegex);
     if (!matchedForBlock) return;
     const forBlock = matchedForBlock[0].trim().replace(/\{\%(.*?)\%\}/gm, '');
     let parsedTpl = '';
-    for (let item of context) {
+    for (let item of state) {
       parsedTpl += this._parseVars(forBlock, item);
     }
     return tpl.replace(forBlockRegex, parsedTpl);
   },
 
-  _getContextVars(tplVarNames, context) {
+  _getstateVars(tplVarNames, state) {
     let arrTplVarNames = tplVarNames.split('.');
     if (arrTplVarNames.length > 1) {
-      context = context[arrTplVarNames[0]];
+      state = state[arrTplVarNames[0]];
       arrTplVarNames.shift();
-      context = this._getContextVars(arrTplVarNames.join('.'), context);
+      state = this._getstateVars(arrTplVarNames.join('.'), state);
     } else {
-      context = context[arrTplVarNames[0]];
+      state = state[arrTplVarNames[0]];
     }
-    return context;
+    return state;
   }
 };
 

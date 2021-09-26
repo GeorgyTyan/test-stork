@@ -1,22 +1,14 @@
-import api from './api.js';
 import view from './view.js';
+import store from './store.js';
 
 const route = {
   loadHomePage() {
-    api
-      .fetchRequest('https://jsonplaceholder.typicode.com/users')
-      .then(data => {
-        view
-          .render('/pages/users.html', data)
-      });
+    const users = store.state;
+    view.render('/pages/users.html', users)
   },
   loadUserPage(id) {
-    api
-      .fetchRequest(`https://jsonplaceholder.typicode.com/users/${ id }`)
-      .then(data => {
-        view
-          .render('/pages/user.html', data)
-      });
+    const user = store.state.find(item => item.id === id);
+    view.render('/pages/user.html', user)
   },
   loadNotFoundPage() {
     view.render('/pages/404.html');
@@ -25,10 +17,10 @@ const route = {
 
 window.onpopstate = () => {
   let path = window.location.pathname;
-  let id = null;
+  let param = null;
   if (path !== '/') {
     let arrPath = path.split('/');
-    id = arrPath.pop();
+    param = parseInt(arrPath.pop());
     path = arrPath.join('/');
   }
   switch (path) {
@@ -36,7 +28,7 @@ window.onpopstate = () => {
       route.loadHomePage();
       break;
     case '/user':
-      route.loadUserPage(id);
+      route.loadUserPage(param);
       break;
     default:
       route.loadNotFoundPage();
