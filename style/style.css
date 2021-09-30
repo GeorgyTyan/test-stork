@@ -41,3 +41,20 @@ body {
     padding: 5px 10px;
     border-bottom: 1px solid #ddd;
 }
+
+.pagination {
+    display: flex;
+    margin-top: 20px;
+}
+
+.pagination-item {
+    padding: 0 10px;
+}
+
+.pagination-item a {
+    text-decoration: none;
+}
+
+.pagination-item.active a {
+    color: #777;
+}
