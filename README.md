@@ -8,3 +8,7 @@
 Ссылка на API: https://jsonplaceholder.typicode.com/
 
 ### Для запуска приложения требуется npm http-server
+
+В корне проектра выполнить команду npm run serve.
+
+___
