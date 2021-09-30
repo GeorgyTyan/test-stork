@@ -45,7 +45,7 @@ const view = {
     currentPage = currentPage - 1 < 0 || currentPage > chunkedState.length ? 0 : currentPage - 1;
     state = chunkedState[currentPage];
     let pagination = '';
-    const response = await fetch('components/pagination.html');
+    const response = await fetch('templates/pagination.html');
     if (response.ok) {
       let tpl = await response.text();
       for (let i = 0; i < chunkedState.length; i++) {

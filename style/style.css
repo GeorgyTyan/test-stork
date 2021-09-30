@@ -4,6 +4,10 @@ body {
     font-family: 'Tahoma', sans-serif;
 }
 
+a {
+    color: #3ba0ee;
+}
+
 #app {
     display: flex;
     height: 100vh;
